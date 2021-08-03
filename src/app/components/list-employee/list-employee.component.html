@@ -1,0 +1,32 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let employee of employees; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{employee.employee_name}}</td>
+        <td>{{employee.employee_salary}}</td>
+        <td>{{employee.employee_age}}</td>
+      </tr>
+    </tbody>
+  </table>
+<!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item ">
+        <a class="nav-link " routerLink="payroll">Payroll Employee List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="contract">Contract Employee List</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet> -->
+
+<!-- 
+<app-payroll-employee></app-payroll-employee>
+<app-contract-employee></app-contract-employee> -->
