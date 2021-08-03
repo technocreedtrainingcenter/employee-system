@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './components/error/error.component';
 import { ContractEmployeeComponent } from './components/contract-employee/contact-employee.component';
 import { PayrollEmployeeComponent } from './components/payroll-employee/payroll-employee.component';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     component: AddEmployeeComponent
   },
   {
+    path: 'edit-employee/:empId',
+    component: EditEmployeeComponent
+  },
+  {
     path: '**',
     component: ErrorComponent
   },
@@ -49,7 +54,8 @@ const routes: Routes = [
     NavbarComponent,
     ErrorComponent,
     ContractEmployeeComponent,
-    PayrollEmployeeComponent
+    PayrollEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,
