@@ -1,1 +1,26 @@
-add employee
+<div class="container mt-5">
+    <form [formGroup]="employeeForm">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            [ngClass]="{ 
+              'invalid': employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched, 
+              'valid': employeeForm.get('name')?.valid
+            }" 
+            id="exampleInputEmail1" >
+            <span *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched"> Name is required</span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Salary</label>
+            <input type="number" formControlName="salary" class="form-control" id="exampleInputEmail1" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Age</label>
+            <input type="email" formControlName="age" class="form-control" id="exampleInputEmail1"  >
+        </div>
+        <button type="button" [disabled]="employeeForm.invalid"class="btn btn-primary" (click)="addEmployee()">Submit</button>
+    </form>
+</div>

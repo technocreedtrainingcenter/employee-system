@@ -11,6 +11,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ContractEmployeeComponent } from './components/contract-employee/contact-employee.component';
 import { PayrollEmployeeComponent } from './components/payroll-employee/payroll-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -60,7 +61,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     // EmployeeService

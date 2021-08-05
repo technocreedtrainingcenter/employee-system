@@ -16,4 +16,8 @@ export class EmployeeService {
     getEmployeeById(id: any) {
         return this.http.get(`http://dummy.restapiexample.com/api/v1/employee/${id}`)
     }
+
+    addEmployee(data: any) {
+        return this.http.post('http://dummy.restapiexample.com/api/v1/create', data)
+    }
 }
