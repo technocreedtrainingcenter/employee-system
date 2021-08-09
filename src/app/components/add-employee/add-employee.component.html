@@ -21,6 +21,33 @@
             <label for="exampleInputEmail1" class="form-label">Age</label>
             <input type="email" formControlName="age" class="form-control" id="exampleInputEmail1"  >
         </div>
-        <button type="button" [disabled]="employeeForm.invalid"class="btn btn-primary" (click)="addEmployee()">Submit</button>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">State</label>
+            <select class="form-select" aria-label="Default select example" formControlName="state" (change)="getDistricts()">
+                <option *ngFor="let state of states" [value]="state.state_id" >{{ state.state_name}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3" *ngIf="districts.length">
+            <label for="exampleInputEmail1" class="form-label">District</label>
+            <select class="form-select" aria-label="Default select example" formControlName="district" (change)="getCenters()">
+                <option *ngFor="let district of districts" [value]="district.district_id" >
+                    {{ district.district_name}}
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3" *ngIf="centers.length">
+            <label for="exampleInputEmail1" class="form-label">Centers</label>
+            <select class="form-select" aria-label="Default select example" formControlName="center">
+                <option *ngFor="let center of centers" [value]="center.center_id" >
+                    {{ center.name}}
+                </option>
+            </select>
+        </div>
+        <!-- [disabled]="employeeForm.invalid" -->
+        
+        <button type="button" class="btn btn-primary" (click)="addEmployee()">Submit</button>
     </form>
 </div>

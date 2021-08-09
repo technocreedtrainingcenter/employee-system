@@ -14,13 +14,48 @@ export class AddEmployeeComponent {
     // salary: any = '';
     
     employeeForm;
+    states: any[] = [];
+
+    districts: any[] = [];
+
+    centers: any[] = [];
 
     constructor(private employeeService: EmployeeService) {
         this.employeeForm = new FormGroup({
             name: new FormControl(null, Validators.required),
             age: new FormControl(null, Validators.required),
-            salary: new FormControl(null, Validators.required)
+            salary: new FormControl(null, Validators.required),
+            state: new FormControl(null, Validators.required),
+            district: new FormControl(null, Validators.required),
+            center: new FormControl(null, Validators.required)
         });
+
+        this.employeeService.getStates().subscribe(
+            (response: any) => {
+                debugger
+                this.states = response;
+            }
+        )
+
+        this.employeeForm.controls.state.valueChanges.subscribe(
+            response => {
+                this.employeeService.getDistrict(response).subscribe(
+                    (response: any) => {
+                        this.districts = response.districts;
+                    }
+                )
+            }
+        )
+
+        this.employeeForm.controls.district.valueChanges.subscribe(
+            response => {
+                this.employeeService.getCenters(response).subscribe(
+                    (response: any) => {
+                        this.centers = response.sessions;
+                    }
+                )
+            }
+        )
     }
 
 
@@ -40,6 +75,25 @@ export class AddEmployeeComponent {
 
             }
         )
+    }
+
+    getDistricts() {
+        // const selectedState = this.employeeForm.controls.state.value
+        // this.employeeService.getDistrict(selectedState).subscribe(
+        //     (response: any) => {
+        //         this.districts = response.districts;
+        //     }
+        // )
+        // console.log('selectedState', selectedState)
+    }
+
+    getCenters() {
+        // const selectedDistrictId = this.employeeForm.controls.district.value;
+        // this.employeeService.getCenters(selectedDistrictId).subscribe(
+        //     (response: any) => {
+        //         this.centers = response.sessions;
+        //     }
+        // )
     }
 
 }
