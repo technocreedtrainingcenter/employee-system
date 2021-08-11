@@ -1,3 +1,4 @@
+import { CharOnly } from '../../validators/char-only.validator';
 import { EmployeeService } from 'src/app/service/employee.service';
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -22,8 +23,9 @@ export class AddEmployeeComponent {
 
     constructor(private employeeService: EmployeeService) {
         this.employeeForm = new FormGroup({
-            name: new FormControl(null, Validators.required),
+            name: new FormControl(null, [Validators.required, Validators.maxLength(5), CharOnly]),
             age: new FormControl(null, Validators.required),
+            email: new FormControl(null, [Validators.email, Validators.required]),
             salary: new FormControl(null, Validators.required),
             state: new FormControl(null, Validators.required),
             district: new FormControl(null, Validators.required),

@@ -3,6 +3,7 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Name</label>
           <input
+            charOnly
             type="text"
             formControlName="name"
             class="form-control"
@@ -13,6 +14,20 @@
             id="exampleInputEmail1" >
             <span *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched"> Name is required</span>
         </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 
+                'invalid': employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched, 
+                'valid': employeeForm.get('email')?.valid
+              }" 
+              id="exampleInputEmail1" >
+              <span *ngIf="!employeeForm.get('email')?.errors?.email && employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched"> Email is required</span>
+              <span *ngIf="employeeForm.get('email')?.errors?.email"> Email is invalid</span>
+          </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Salary</label>
             <input type="number" formControlName="salary" class="form-control" id="exampleInputEmail1" >

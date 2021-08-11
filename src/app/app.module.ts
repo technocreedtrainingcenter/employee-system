@@ -12,6 +12,7 @@ import { ContractEmployeeComponent } from './components/contract-employee/contac
 import { PayrollEmployeeComponent } from './components/payroll-employee/payroll-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CharOnlyDirective } from './directives/char-only.directive';
 
 const routes: Routes = [
   {
@@ -56,7 +57,8 @@ const routes: Routes = [
     ErrorComponent,
     ContractEmployeeComponent,
     PayrollEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    CharOnlyDirective
   ],
   imports: [
     BrowserModule,
