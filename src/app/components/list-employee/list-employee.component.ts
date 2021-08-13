@@ -9,6 +9,10 @@ import { EmployeeService } from "src/app/service/employee.service";
 export class ListEmployeeComponent {
 
     employees: any[] = [];
+    searchText = '';
+    searchLetter = '';
+
+    letters = ['a','b', 'c']
 
     constructor(
       private employeeService: EmployeeService,
@@ -27,5 +31,8 @@ export class ListEmployeeComponent {
 
    onEdit(employeeId: any) {
      this.router.navigate(['edit-employee', employeeId]);
+   }
+   addLetter() {
+     this.letters.push('a');
    }
 } 

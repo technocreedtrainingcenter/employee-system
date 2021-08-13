@@ -1,4 +1,26 @@
+
+<div class="mb-3">
+  <label for="exampleInputEmail1" class="form-label">search</label>
+  <input type="text"  class="form-control" id="exampleInputEmail1" [(ngModel)]="searchLetter">
+</div>
+
+<div>
+  <ul>
+    <li *ngFor="let letter of letters | letterSearch: searchLetter ">
+      {{letter}}
+    </li>
+  </ul>
+</div>
+<button type="button" (click)="addLetter()">Add Letter A</button>
+<hr>
+
 <div class="container mt-5">
+
+<div class="mb-3">
+  <label for="exampleInputEmail1" class="form-label">search</label>
+  <input type="text"  class="form-control" id="exampleInputEmail1" [(ngModel)]="searchText">
+</div>
+
   <table class="table">
       <thead>
         <tr>
@@ -10,7 +32,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor=" let employee of employees; let i = index">
+        <tr *ngFor=" let employee of employees | searchEmployee: searchText; let i = index">
           <th scope="row">{{i + 1}}</th>
           <td>{{employee.employee_name}}</td>
           <td>{{employee.employee_salary}}</td>

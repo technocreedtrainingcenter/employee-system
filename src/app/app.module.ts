@@ -1,3 +1,4 @@
+import { SearchPipe } from './pipe/search.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
@@ -13,6 +14,8 @@ import { PayrollEmployeeComponent } from './components/payroll-employee/payroll-
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharOnlyDirective } from './directives/char-only.directive';
+import { ShortenPipe } from './pipe/shorten.pipe';
+import { LettersPipe } from './pipe/letters.pipe';
 
 const routes: Routes = [
   {
@@ -58,7 +61,10 @@ const routes: Routes = [
     ContractEmployeeComponent,
     PayrollEmployeeComponent,
     EditEmployeeComponent,
-    CharOnlyDirective
+    CharOnlyDirective,
+    ShortenPipe,
+    SearchPipe,
+    LettersPipe
   ],
   imports: [
     BrowserModule,

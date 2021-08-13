@@ -20,8 +20,9 @@ export class AddEmployeeComponent {
     districts: any[] = [];
 
     centers: any[] = [];
+    text = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, inventore!';
 
-    constructor(private employeeService: EmployeeService) {
+    constructor(public employeeService: EmployeeService) {
         this.employeeForm = new FormGroup({
             name: new FormControl(null, [Validators.required, Validators.maxLength(5), CharOnly]),
             age: new FormControl(null, Validators.required),
