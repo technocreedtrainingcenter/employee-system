@@ -11,22 +11,21 @@ export class EmployeeService {
     ) { }
 
     getEmplyeeList() {
-        return this.http.get('https://dummy.restapiexample.com/api/v1/employees')
+        return this.http.get('employees')
     }
 
     getEmployeeById(id: any) {
-        return this.http.get(`http://dummy.restapiexample.com/api/v1/employee/${id}`)
+        return this.http.get(`employee/${id}`)
     }
 
     addEmployee(data: any) {
-        return this.http.post('http://dummy.restapiexample.com/api/v1/create', data)
+        return this.http.post('create', data)
     }
 
     getStates() {
         return this.http.get('https://cdn-api.co-vin.in/api/v2/admin/location/states')
             .pipe(
                 map((response: any) => {
-                    debugger
                     return response.states
                 })
             )

@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LettersPipe implements PipeTransform {
     transform(value: string[], searchText: string) {
-        debugger
         if (!searchText) {
             return value;
         }

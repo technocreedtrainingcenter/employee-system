@@ -1,7 +1,8 @@
+import { TokenInterceptor } from './service/token.interceptor';
 import { SearchPipe } from './pipe/search.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { EmployeeService } from './service/employee.service';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
@@ -74,7 +75,8 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   providers: [
-    // EmployeeService
+    // EmployeeService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor , multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -35,7 +35,6 @@ export class AddEmployeeComponent {
 
         this.employeeService.getStates().subscribe(
             (response: any) => {
-                debugger
                 this.states = response;
             }
         )
@@ -69,7 +68,6 @@ export class AddEmployeeComponent {
             salary: this.employeeForm.controls.salary.value
         };
         console.log('employee form', this.employeeForm.value);
-        debugger
         if (this.employeeForm.invalid) {
             return;
         }

@@ -18,7 +18,6 @@ export class EditEmployeeComponent implements OnInit {
   ) { 
     this.activatedRoute.paramMap.subscribe(
       response => {
-        debugger
           const employeeId = response.get('empId');
           this.getEmployeeById(employeeId);
       }
