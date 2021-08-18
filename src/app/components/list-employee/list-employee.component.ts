@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from '@angular/router';
 import { EmployeeService } from "src/app/service/employee.service";
@@ -17,9 +18,13 @@ export class ListEmployeeComponent {
     constructor(
       private employeeService: EmployeeService,
       private router: Router,
-      private activatedRoute:ActivatedRoute
+      private activatedRoute:ActivatedRoute,
+      private authService: AuthService
     ) {
        this.getEmployees();
+      //  if (!authService.isUserLoggedIn) {
+      //   this.router.navigate(['login'])
+      //  }
     }
   
    getEmployees() {

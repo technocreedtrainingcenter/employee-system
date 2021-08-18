@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptor } from './service/token.interceptor';
 import { SearchPipe } from './pipe/search.pipe';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharOnlyDirective } from './directives/char-only.directive';
 import { ShortenPipe } from './pipe/shorten.pipe';
 import { LettersPipe } from './pipe/letters.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -25,12 +27,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'home',
     component: ListEmployeeComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'payroll',
-        component: PayrollEmployeeComponent
+        component: PayrollEmployeeComponent,
       },
       {
         path: 'contract',
@@ -40,11 +47,13 @@ const routes: Routes = [
   },
   {
     path: 'add-employee',
-    component: AddEmployeeComponent
+    component: AddEmployeeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'edit-employee/:empId',
-    component: EditEmployeeComponent
+    component: EditEmployeeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
@@ -65,7 +74,8 @@ const routes: Routes = [
     CharOnlyDirective,
     ShortenPipe,
     SearchPipe,
-    LettersPipe
+    LettersPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
